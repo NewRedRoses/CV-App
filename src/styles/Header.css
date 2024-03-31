@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 3px solid var(--bg-color);
 }
-.header-text{
-    font-size: 1.2rem;
-    font-weight: 700;
+.header-text {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
