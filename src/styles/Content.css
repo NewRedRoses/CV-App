@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  height: 100vh;
+  font-size: 1.1rem;
+}
+.left-content {
+  background-color: var(--bg-lighter-color);
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content ul {
+  /* bullet point */
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
