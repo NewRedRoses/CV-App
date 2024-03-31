@@ -1,0 +1,13 @@
+:root {
+  --text-color: #f7f1e3;
+  --bg-color: #2c2c54;
+  --bg-lighter-color: #40407a;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: "IBM Plex Sans";
+}
+body {
+  margin: 0;
+  height: 100vh;
+}
