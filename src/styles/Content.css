@@ -1,7 +1,7 @@
 .content {
   display: flex;
-  height: 100vh;
   font-size: 1.1rem;
+  justify-content: center;
 }
 .left-content {
   background-color: var(--bg-lighter-color);
@@ -15,4 +15,17 @@
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+}
+.content li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.right-content {
+  /* background-color: var(--text-color); */
+  background-color: white;
+  color: var(--bg-color);
+  max-width: 500px;
+  flex: 3;
+  margin: 30px 60px;
 }
