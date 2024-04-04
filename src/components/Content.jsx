@@ -19,22 +19,24 @@ const practicalQuestions = [
   { questionId: "startDate", type: "date", prompt: "Start Date" },
   { questionId: "endDate", type: "date", prompt: "End Date" },
 ];
-export default function Content() {
-  function CustomInput({ questionId, prompt, type }) {
-    const [value, setValue] = useState("");
+function CustomInput({ questionId, prompt, type, resume, setResume }) {
+  return (
+    <>
+      <label htmlFor={questionId}>{prompt}</label>
+      <input
+        type={type}
+        id={questionId}
+        onChange={(event) => {
+          setResume({ ...resume, [questionId]: event.target.value });
+          console.log(resume);
+        }}
+      />
+    </>
+  );
+}
 
-    return (
-      <>
-        <label htmlFor={questionId}>{prompt}</label>
-        <input
-          type={type}
-          id={questionId}
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-        />
-      </>
-    );
-  }
+export default function Content() {
+  const [resume, setResume] = useState({});
 
   return (
     <div className="content">
@@ -45,6 +47,8 @@ export default function Content() {
               <li key={question.questionId}>
                 <CustomInput
                   questionId={question.questionId}
+                  resume={resume}
+                  setResume={setResume}
                   type={question.type}
                   prompt={question.prompt}
                 />
@@ -58,6 +62,8 @@ export default function Content() {
               <li key={question.questionId}>
                 <CustomInput
                   questionId={question.questionId}
+                  resume={resume}
+                  setResume={setResume}
                   type={question.type}
                   prompt={question.prompt}
                 />
@@ -71,6 +77,8 @@ export default function Content() {
               <li key={question.questionId}>
                 <CustomInput
                   questionId={question.questionId}
+                  resume={resume}
+                  setResume={setResume}
                   type={question.type}
                   prompt={question.prompt}
                 />
@@ -79,7 +87,33 @@ export default function Content() {
           </ul>
         </div>
       </div>
-      <div className="right-content"></div>
+      <div className="right-content">
+        <div className="resume-content">
+          <h1 className="name-container">
+            {resume.fname} {resume.lname}
+          </h1>
+          <hr />
+          <div className="education-container">
+            <h2>Education</h2>
+            <div className="education-details">
+              <b>{resume.sname}</b> {resume.degree}
+              <div>{resume.studyDate}</div>
+            </div>
+          </div>
+          <div className="work-container">
+            <h2>Work Experience</h2>
+            <span>
+              {resume.compName} {resume.jobTitle}
+            </span>
+            <span>
+              {resume.startDate}-{resume.endDate}
+            </span>
+            <ul>
+              <li>{resume.jobDuties}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
