@@ -26,10 +26,9 @@ function CustomInput({ questionId, prompt, type, resume, setResume }) {
       <input
         type={type}
         id={questionId}
-        onChange={(event) => {
-          setResume({ ...resume, [questionId]: event.target.value });
-          console.log(resume);
-        }}
+        onChange={(event) =>
+          setResume({ ...resume, [questionId]: event.target.value })
+        }
       />
     </>
   );
@@ -92,6 +91,19 @@ export default function Content() {
           <h1 className="name-container">
             {resume.fname} {resume.lname}
           </h1>
+          <div className="name-subcontainer">
+            <span className="p-number">
+              <img className="icon" src="/src/assets/phone.svg" alt="" />
+              &nbsp;
+              <a href={"tel:" + resume.pnumber}>{resume.pnumber}</a>
+            </span>
+            &nbsp; | &nbsp;
+            <span className="email">
+              <img className="icon" src="/src/assets/email.svg" alt="" />
+              &nbsp;
+              <a href={"mailto:" + resume.email}>{resume.email}</a>
+            </span>
+          </div>
           <hr />
           <div className="education-container">
             <h2>Education</h2>
