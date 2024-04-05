@@ -87,53 +87,60 @@ export default function Content() {
         </div>
       </div>
       <div className="right-content">
-        <div className="resume-content">
-          <h1 className="name-container">
-            {resume.fname} {resume.lname}
-            <div className="name-subcontainer">
-              <span className="p-number">
-                <img className="icon" src="/src/assets/phone.svg" alt="" />
-                &nbsp;
-                <a href={"tel:" + resume.pnumber}>{resume.pnumber}</a>
-              </span>
-              &nbsp; | &nbsp;
-              <span className="email">
-                <img className="icon" src="/src/assets/email.svg" alt="" />
-                &nbsp;
-                <a href={"mailto:" + resume.email}>{resume.email}</a>
-              </span>
-            </div>
-          </h1>
-
-          <hr />
-          <div className="bottom-resume-section">
-            <div className="education-container">
-              <h2>Education</h2>
-              <div className="education-details">
-                <span>
-                  <b>{resume.sname}</b>
-                </span>{" "}
-                <span>{resume.degree}</span>
-                <div>{resume.studyDate}</div>
-              </div>
-            </div>
-            <div className="work-container">
-              <h2>Work Experience</h2>
-              <div className="work-details">
-                <span>
-                  <b>{resume.compName}</b> - {resume.jobTitle}
+        { !objectIsEmpty(resume) && 
+          <div className="resume-content">
+            <h1 className="name-container">
+              {resume.fname} {resume.lname}
+              <div className="name-subcontainer">
+                <span className="p-number">
+                  <img className="icon" src="/src/assets/phone.svg" alt="" />
+                  &nbsp;
+                  <a href={"tel:" + resume.pnumber}>{resume.pnumber}</a>
                 </span>
-                <div>
-                  From {resume.startDate} to {resume.endDate}
+                &nbsp; | &nbsp;
+                <span className="email">
+                  <img className="icon" src="/src/assets/email.svg" alt="" />
+                  &nbsp;
+                  <a href={"mailto:" + resume.email}>{resume.email}</a>
+                </span>
+              </div>
+            </h1>
+
+            <hr />
+            <div className="bottom-resume-section">
+              <div className="education-container">
+                <h2>Education</h2>
+                <div className="education-details">
+                  <span>
+                    <b>{resume.sname}</b>
+                  </span>{" "}
+                  <span>{resume.degree}</span>
+                  <div>{resume.studyDate}</div>
                 </div>
-                <div className="job-description-container">
-                  <p>{resume.jobDuties}</p>
+              </div>
+              <div className="work-container">
+                <h2>Work Experience</h2>
+                <div className="work-details">
+                  <span>
+                    <b>{resume.compName}</b> - {resume.jobTitle}
+                  </span>
+                  <div>
+                    From {resume.startDate} to {resume.endDate}
+                  </div>
+                  <div className="job-description-container">
+                    <p>{resume.jobDuties}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        }
       </div>
     </div>
+  );
+}
+function objectIsEmpty(myEmptyObj) {
+  return (
+    Object.keys(myEmptyObj).length === 0 && myEmptyObj.constructor === Object
   );
 }
