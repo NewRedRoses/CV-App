@@ -15,7 +15,7 @@ const eduQuestions = [
 const practicalQuestions = [
   { questionId: "compName", type: "text", prompt: "Company Name" },
   { questionId: "jobTitle", type: "text", prompt: "Job Title" },
-  { questionId: "jobDuties", type: "text", prompt: "Job Duties" },
+  { questionId: "jobDuties", type: "text", prompt: "Job Description" },
   { questionId: "startDate", type: "date", prompt: "Start Date" },
   { questionId: "endDate", type: "date", prompt: "End Date" },
 ];
@@ -90,39 +90,47 @@ export default function Content() {
         <div className="resume-content">
           <h1 className="name-container">
             {resume.fname} {resume.lname}
-          </h1>
-          <div className="name-subcontainer">
-            <span className="p-number">
-              <img className="icon" src="/src/assets/phone.svg" alt="" />
-              &nbsp;
-              <a href={"tel:" + resume.pnumber}>{resume.pnumber}</a>
-            </span>
-            &nbsp; | &nbsp;
-            <span className="email">
-              <img className="icon" src="/src/assets/email.svg" alt="" />
-              &nbsp;
-              <a href={"mailto:" + resume.email}>{resume.email}</a>
-            </span>
-          </div>
-          <hr />
-          <div className="education-container">
-            <h2>Education</h2>
-            <div className="education-details">
-              <b>{resume.sname}</b> {resume.degree}
-              <div>{resume.studyDate}</div>
+            <div className="name-subcontainer">
+              <span className="p-number">
+                <img className="icon" src="/src/assets/phone.svg" alt="" />
+                &nbsp;
+                <a href={"tel:" + resume.pnumber}>{resume.pnumber}</a>
+              </span>
+              &nbsp; | &nbsp;
+              <span className="email">
+                <img className="icon" src="/src/assets/email.svg" alt="" />
+                &nbsp;
+                <a href={"mailto:" + resume.email}>{resume.email}</a>
+              </span>
             </div>
-          </div>
-          <div className="work-container">
-            <h2>Work Experience</h2>
-            <span>
-              {resume.compName} {resume.jobTitle}
-            </span>
-            <span>
-              {resume.startDate}-{resume.endDate}
-            </span>
-            <ul>
-              <li>{resume.jobDuties}</li>
-            </ul>
+          </h1>
+
+          <hr />
+          <div className="bottom-resume-section">
+            <div className="education-container">
+              <h2>Education</h2>
+              <div className="education-details">
+                <span>
+                  <b>{resume.sname}</b>
+                </span>{" "}
+                <span>{resume.degree}</span>
+                <div>{resume.studyDate}</div>
+              </div>
+            </div>
+            <div className="work-container">
+              <h2>Work Experience</h2>
+              <div className="work-details">
+                <span>
+                  <b>{resume.compName}</b> - {resume.jobTitle}
+                </span>
+                <div>
+                  From {resume.startDate} to {resume.endDate}
+                </div>
+                <div className="job-description-container">
+                  <p>{resume.jobDuties}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
